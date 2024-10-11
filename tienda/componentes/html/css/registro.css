@@ -1,0 +1,11 @@
+.form-container {
+  width: 300px;
+  margin: 20px auto;
+}
+input,
+label {
+  display: inherit;
+}
+select {
+  margin-bottom: 10px;
+}
