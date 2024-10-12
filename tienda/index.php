@@ -27,7 +27,6 @@ switch ($request) {
 // echo "<h1> Hola soy " . $_SESSION["usuario"]->nombre . "</h1>";
 // echo "<a href='cerrar_session.php'>Cerrar Sesión</a>";
 
-$index = 1
 ?>
 
 <!DOCTYPE html>
