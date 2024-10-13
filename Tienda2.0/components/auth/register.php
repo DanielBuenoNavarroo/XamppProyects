@@ -24,7 +24,7 @@
         name="id_rol"
         class="<?php echo $input_style ?>"
         placeholder="Rol">
-        <?php require_once "./model/controllers/roles_select.php" ?>
+        <?php require_once "./model/db/get_roles.php" ?>
     </select>
     <div class="px-16 mt-8">
         <input

@@ -1,3 +1,7 @@
+<?php
+require_once "helpers/helpers.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="h-full bg-zinc-900">
 

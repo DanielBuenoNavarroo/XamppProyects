@@ -13,6 +13,7 @@ $routes = [
     $baseRoute . 'auth' =>  'controllers/auth.controller.php',
     $baseRoute . 'logout' => 'model/controllers/logout.php',
     $baseRoute . 'shop' => 'controllers/shop.controller.php',
+    $baseRoute . 'admin' => 'controllers/admin.controller.php',
 ];
 if (array_key_exists($uri, $routes)) {
     $view = $routes[$uri];
