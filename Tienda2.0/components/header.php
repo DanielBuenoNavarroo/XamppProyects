@@ -1,7 +1,7 @@
 <header class="w-full h-[72px] bg-neutral-900 shadow-lg border-b border-zinc-800">
     <nav class="w-full h-full  text-white flex justify-center items-center gap-4 py-4">
         <a
-            href="<?php echo $baseRoute . ''; ?>"
+            href="<?php echo $baseRoute; ?>"
             class="<?php echo 'px-3 py-2 w-24 text-center rounded-md ' . ($selected == '' ? 'bg-blue-500' : 'hover:bg-zinc-800'); ?>">
             Home
         </a>
@@ -56,11 +56,4 @@
         );
         ?>
     </nav>
-    <script>
-        const dropdown = document.getElementById('dropdown');
-        const handleDropdown = () => {
-            dropdown.classList.toggle('hidden');
-            dropdown.classList.toggle('flex');
-        }
-    </script>
 </header>
