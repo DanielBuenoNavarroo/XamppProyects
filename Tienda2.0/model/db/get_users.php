@@ -13,3 +13,7 @@ function getUsers($ofset)
 
     return $users;
 }
+
+function getUsersPDO() {
+    
+}
