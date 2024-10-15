@@ -1,6 +1,12 @@
+<?php
+$message;
+require_once "./model/controllers/register.php"
+?>
 <h1 class="text-3xl font-bold">Registrarse</h1>
 <form action="" method="post" class="<?php echo $form_style ?>">
-    <?php require_once "./model/controllers/register.php" ?>
+    <?php if ($message) { ?>
+        <div class="<?php echo $error_style ?>"><?php echo $message ?></div>
+    <?php } ?>
     <label for="nombre" class="<?php echo $label_style ?>">Nombre</label>
     <input
         type="text"
@@ -24,7 +30,12 @@
         name="id_rol"
         class="<?php echo $input_style ?>"
         placeholder="Rol">
-        <?php require_once "./model/db/get_roles.php" ?>
+        <?php
+        require_once "./modelPDO/db/get_roles.php";
+        $roles = getRoles();
+        if ($roles != false)
+            foreach ($roles as $rol) echo "<option value='" . $rol["id"] . "'>" . $rol["nombre"] . "</option>";
+        ?>
     </select>
     <div class="px-16 mt-8">
         <input

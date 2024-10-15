@@ -1,6 +1,12 @@
+<?php
+$message = '';
+require_once "./modelPDO/controllers/auth/login.php";
+?>
 <h1 class="text-3xl font-bold">Iniciar Sesión</h1>
 <form action="" method="post" class="<?php echo $form_style ?>">
-    <?php require_once "./model/controllers/login.php"; ?>
+    <?php if ($message) { ?>
+        <div class="<?php echo $error_style ?>"><?php echo $message ?></div>
+    <?php } ?>
     <label for="email" class="<?php echo $label_style ?>">Email</label>
     <input
         type="email"
