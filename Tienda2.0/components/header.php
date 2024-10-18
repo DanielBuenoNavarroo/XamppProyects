@@ -13,23 +13,22 @@
         <div class="w-full flex items-center justify-center gap-4">
             <a
                 href="<?php echo $baseRoute; ?>"
-                class="<?php echo 'px-3 py-2 w-24 text-center rounded-md ' . ($selected == '' ? 'bg-blue-500' : 'hover:bg-zinc-800'); ?>">
+                class="px-3 py-2 w-24 text-center rounded-md <?php echo ($selected == '' ? 'bg-blue-500' : 'hover:bg-zinc-800'); ?>">
                 Home
             </a>
             <a
                 href="<?php echo $baseRoute . "shop"; ?>"
-                class="<?php echo "px-3 py-2 w-24 text-center rounded-md " . ($selected == "shop" ? "bg-blue-500" : "hover:bg-zinc-800"); ?>">
+                class="px-3 py-2 w-24 text-center rounded-md <?php echo ($selected == '' ? 'bg-blue-500' : 'hover:bg-zinc-800'); ?>">
                 Shop
             </a>
             <?php
-            if (isset($user) && $roles[$user['rol_id']] == 'admin') {
-                echo '<a 
-                    href="' . $baseRoute . 'admin" 
-                    class="px-3 py-2 w-24 text-center rounded-md ' . ($selected == 'admin' ? 'bg-blue-500' : 'hover:bg-zinc-800') . '">
+            if (isset($user) && $roles[$user['rol_id']] == 'admin') { ?>
+                <a
+                    href="<?php echo $baseRoute . "admin"; ?>"
+                    class="px-3 py-2 w-24 text-center rounded-md <?php echo ($selected == '' ? 'bg-blue-500' : 'hover:bg-zinc-800'); ?>">
                     Admin
-                </a>';
-            }
-            ?>
+                </a>'
+            <?php } ?>
         </div>
         <?php
         echo (isset($user) ?
@@ -75,9 +74,8 @@
         ?>
     </nav>
     <script>
-        let searchTimeout;
-
         const debounce = (fn, delay) => {
+            let searchTimeout;
             return () => {
                 clearTimeout(searchTimeout);
                 searchTimeout = setTimeout(() => fn(), delay);

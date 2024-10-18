@@ -34,6 +34,3 @@ foreach ($result as $userData) {
     </tbody>
     </table>';
 }
-echo '<div>
-
-</div>';

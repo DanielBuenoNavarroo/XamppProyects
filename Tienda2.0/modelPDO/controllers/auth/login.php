@@ -8,7 +8,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $conexion->prepare("SELECT * FROM usuarios WHERE email = :email AND password = :password");
         $stmt->bindParam(':email', $email);
         $stmt->bindparam(':password', $password);
-        if ($stmt->execute()->rowCount() > 0) {
+        $res = $stmt->execute();
+        var_dump($res);
+        if ($user = $stmt->fetch(PDO::FETCH_OBJ)) {
             session_start();
             $_SESSION["user"] = $user;
             header("Location: " . $baseRoute);

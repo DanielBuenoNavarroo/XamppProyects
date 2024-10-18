@@ -11,7 +11,7 @@ $baseRoute = '/XamppProyects/Tienda2.0/';
 $routes = [
     $baseRoute . '' => 'controllers/index.controller.php',
     $baseRoute . 'auth' =>  'controllers/auth.controller.php',
-    $baseRoute . 'logout' => 'model/controllers/logout.php',
+    $baseRoute . 'logout' => 'modelPDO/controllers/auth/logout.php',
     $baseRoute . 'shop' => 'controllers/shop.controller.php',
     $baseRoute . 'admin' => 'controllers/admin.controller.php',
 ];
