@@ -15,11 +15,17 @@ $routes = [
     $baseRoute . 'shop' => 'controllers/shop.controller.php',
     $baseRoute . 'admin' => 'controllers/admin.controller.php',
 ];
+$api = [
+    $baseRoute . 'search_product' => 'modelPDO/api/search_products.php',
+    $baseRoute . 'search_user' => '',
+];
 if (array_key_exists($uri, $routes)) {
     $view = $routes[$uri];
+} elseif (array_key_exists($uri, $api)) {
+    require_once $api[$uri];
+    exit();
 } else {
     http_response_code(404);
     $view = 'controllers/404.controller.php';
 }
-
 require "layouts/layout.php";
