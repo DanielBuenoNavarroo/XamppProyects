@@ -2,5 +2,5 @@
 
 $name = 'Auth';
 
-if (isset($user)) header("Location: " . $baseRoute);
+if (isset($_SESSION["user"])) header("Location: " . $baseRoute);
 require "views/auth.view.php";

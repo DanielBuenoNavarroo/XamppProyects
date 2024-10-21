@@ -1,6 +1,6 @@
 <?php
 $message = '';
-require_once "./modelPDO/controllers/auth/login.php";
+require_once "./model/controllers/auth/login.php";
 ?>
 <h1 class="text-3xl font-bold">Iniciar Sesión</h1>
 <form action="" method="post" class="<?php echo $form_style ?>">

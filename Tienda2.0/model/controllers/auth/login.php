@@ -1,16 +1,15 @@
 <?php
-require_once "./modelPDO/db_conex.php";
+require_once "./model/db_conex.php";
+$conexion = getConnection();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($_POST["email"]) && !empty($_POST['password'])) {
         $email = $_POST["email"];
         $password = hash("sha256", $_POST["password"]);
-        $sql = "";
         $stmt = $conexion->prepare("SELECT * FROM usuarios WHERE email = :email AND password = :password");
         $stmt->bindParam(':email', $email);
         $stmt->bindparam(':password', $password);
         $res = $stmt->execute();
-        var_dump($res);
-        if ($user = $stmt->fetch(PDO::FETCH_OBJ)) {
+        if ($user = $stmt->fetch(PDO::FETCH_ASSOC)) {
             session_start();
             $_SESSION["user"] = $user;
             header("Location: " . $baseRoute);
