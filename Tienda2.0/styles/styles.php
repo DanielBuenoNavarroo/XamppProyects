@@ -1,5 +1,8 @@
 <?php
 
+// Logo
+$logo_style = "w-fit text-4xl p-3 font-semibold [text-shadow:_0_4px_8px_rgba(14_165_223_/_0.5)] bg-gradient-to-t from-blue-400 to-green-400 inline-block text-transparent bg-clip-text";
+
 // Form
 $form_style = "flex flex-col gap-1 w-96 ";
 $input_style = "rounded-md px-4 py-3 w-full border border-gray-700 bg-gray-900 mb-4 ";

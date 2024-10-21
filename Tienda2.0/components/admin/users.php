@@ -4,7 +4,7 @@
         <thead class="text-xs uppercase bg-gray-700 text-gray-400">
             <tr>
                 <?php foreach ($display_user as $key) {
-                    echo '<th scope="col" class="px-6 py-3">' . $key . '</th>';
+                    echo "<th scope='col' class='px-6 py-3'>$key</th>";
                 } ?>
             </tr>
         </thead>

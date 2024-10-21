@@ -11,8 +11,8 @@
         </div>
     </div>
     <div id="results_container" class="hidden w-full xl:w-[600px] lg:w-[400px] md:w-[250px] sm:w-[200px] absolute top-16 left-0 z-10 justify-center">
-        <div class="w-full xl:w-[550px] lg:w-[360px] md:w-[200px] sm:w-[200px] bg-gray-900 rounded-md border-blue-500 ring-4 ring-blue-500 px-4 py-2">
-            <ul class="flex flex-col gap-y-4" id="results"></ul>
+        <div class="w-full xl:w-[550px] lg:w-[360px] md:w-[200px] sm:w-[200px] bg-gray-900 rounded-md border-blue-500 ring-4 ring-blue-500">
+            <ul class="w-full h-full flex flex-col" id="results"></ul>
         </div>
     </div>
 </div>
@@ -53,9 +53,12 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.length) {
-                        results.innerHTML = data.map(product => `<li>${product.nombre}</li>`).join('');
+                        results.innerHTML = data.map((product, i) =>
+                            `<li class="w-full px-4 py-2 cursor-pointer hover:bg-gray-950 rounded-md">${product.nombre}</li>
+                            ${i !== data.length - 1 ? '<hr class="border-b border-blue-500">' : ''}
+                        `).join('');
                     } else {
-                        results.innerHTML = '<li>No hay productos para mostrar</li>';
+                        results.innerHTML = '<li class="px-4 py-2">No hay productos para mostrar</li>';
                     }
                     showResultsContainer();
                 })

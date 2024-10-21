@@ -1,8 +1,11 @@
 <?php
-$vista = isset($_GET['view']) ? $_GET['view'] : 'login';
+$vista = $_GET['view'] ?? 'login';
 ?>
 
-<div class="w-full h-full flex flex-col items-center justify-center gap-8">
+<div class="w-full h-fit flex items-center justify-center mt-8">
+    <a href="<?php echo $baseRoute ?>" class="<?php echo $logo_style ?>">Tienda</a>
+</div>
+<div class="w-full h-full flex flex-col items-center justify-center gap-8 -mt-20">
     <?php
     if ($vista === 'login') {
         require './components/auth/login.php';
