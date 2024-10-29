@@ -1,0 +1,5 @@
+bootcamp laravel: https://bootcamp.laravel.com/inertia/installation
+instalar laravel:
+instalar composer: https://getcomposer.org/download/
+cmd: composer global require laravel/installer
+cmd: laravel new [nombre]
