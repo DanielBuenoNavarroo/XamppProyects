@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 2</title>
+    <style>
+      input {
+        display: inherit;
+        margin-bottom: 5%;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" id="name" placeholder="Nombre" />
+      <input type="text" id="email" placeholder="Correo electrónico" />
+      <input type="submit" id="send" value="Enviar" />
+    </form>
+    <p id="mensaje"></p>
+  </body>
+  <script>
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const send = document.getElementById("send");
+
+    usuario = {
+      nombre: name.value.trim(),
+      correo: email.value.trim(),
+    };
+
+    send.addEventListener("click", (e) => {
+      e.preventDefault();
+      enviar(usuario);
+    });
+
+    const enviar = (data) =>
+      fetch("http://localhost/XamppProyects/PracticaAjax/ej2.php", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          console.log(response);
+          if (!response.ok) {
+            throw new Error("No se pudo cargar el archivo JSON.");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          document.getElementById("mensaje").innerText =
+            "Los datos se insertaron correctamente";
+        })
+        .catch((error) => {
+          document.getElementById("mensaje").innerText =
+            "Ocurrió un error al insertar los datos";
+        });
+  </script>
+</html>
