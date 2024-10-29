@@ -3,3 +3,7 @@ instalar laravel:
 instalar composer: https://getcomposer.org/download/
 cmd: composer global require laravel/installer
 cmd: laravel new [nombre]
+
+
+cmd: php artisan migrate // crea la bbdd
+cmd: php artisan make:migration create_flights_table // crear una tabla
