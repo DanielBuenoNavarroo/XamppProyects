@@ -4,7 +4,7 @@ $conexion = getConnection();
 $query = isset($_GET['search']) ? ('%' . $_GET['search'] . '%') : "";
 if ($query != "") {
     $stm = $conexion->prepare("SELECT * FROM productos WHERE nombre LIKE :search OR descripcion LIKE :search");
-    $stm->bindParam(":search", $query);
+    $stm->bindParam(":search", var: $query);
     $stm->execute();
     $products = $stm->fetchAll(PDO::FETCH_ASSOC);
     header('Content-Type: application/json');
