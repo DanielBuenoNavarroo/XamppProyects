@@ -1,6 +1,6 @@
 <?php
 require_once "./model/db_conex.php";
-$conexion = getConnection();
+$conexion = getConexion();
 $query = isset($_GET['search']) ? ('%' . $_GET['search'] . '%') : "";
 if ($query != "") {
     $stm = $conexion->prepare("SELECT * FROM productos WHERE nombre LIKE :search OR descripcion LIKE :search");

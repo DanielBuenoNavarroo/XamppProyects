@@ -6,32 +6,31 @@ try {
 
     $LIMIT = ($_GET["limit"] ?? 10);
     $OFFSET = ($_GET["page"] ?? 0) * $LIMIT;
-
+    
+    $country_id = $_GET["country_id"] ?? null;
     $name = $_GET["name"] ?? null;
-    $iso2 = $_GET["iso2"] ?? null;
-    $iso3 = $_GET["iso3"] ?? null;
+    $country_code = $_GET["country_code"] ?? null;
     $id = $_GET["id"] ?? null;
 
-    $query = "SELECT * FROM countries";
+    $query = "SELECT * FROM states";
     $params = [];
+    $conditions = [];
 
     if ($id) {
         $query .= " WHERE id = :id";
         $params[":id"] = $id;
     } else {
-        $conditions = [];
-        
+        if ($country_id) {
+            $conditions[] = "country_id = :country_id";
+            $params[":country_id"] = $country_id;
+        }
         if ($name) {
             $conditions[] = "name LIKE :name";
             $params[":name"] = "%$name%";
         }
-        if ($iso2) {
-            $conditions[] = "iso2 = :iso2";
-            $params[":iso2"] = $iso2;
-        }
-        if ($iso3) {
-            $conditions[] = "iso3 = :iso3";
-            $params[":iso3"] = $iso3;
+        if ($country_code) {
+            $conditions[] = "country_code = :country_code";
+            $params[":country_code"] = $country_code;
         }
 
         if (!empty($conditions)) {

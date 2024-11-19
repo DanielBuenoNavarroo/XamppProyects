@@ -2,7 +2,7 @@
 function getProducts($ofset)
 {
     require_once "./model/db_conex.php";
-    $conexion = getConnection();
+    $conexion = getConexion();
     $result = $conexion->query("SELECT * FROM productos LIMIT 10 OFFSET $ofset");
     return $result ? $result : null;
 }

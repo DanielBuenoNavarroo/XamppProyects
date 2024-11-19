@@ -1,6 +1,6 @@
 <?php
 require_once "./model/db_conex.php";
-$conexion = getConnection();
+$conexion = getConexion();
 if ($_SERVER["REQUEST_METHOD"] == "POST")
     if (!empty($_POST["nombre"]) && !empty($_POST["email"]) && !empty($_POST["password"])) {
         $nombre = $_POST["nombre"];

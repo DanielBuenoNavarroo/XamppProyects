@@ -17,6 +17,8 @@ $api = [
     "{$baseRoute}search_product" => 'model/api/search_products.php',
     "{$baseRoute}search_user" => '',
     "{$apiRoute}countries"=> 'model/api/world/get_countries.php',
+    "{$apiRoute}states"=> 'model/api/world/get_states.php',
+    "{$apiRoute}cities"=> 'model/api/world/get_cities.php',
 ];
 
 if (array_key_exists($uri, $routes)) {
@@ -28,4 +30,5 @@ if (array_key_exists($uri, $routes)) {
     http_response_code(404);
     $view = 'controllers/404.controller.php';
 }
+
 require "layouts/layout.php";
