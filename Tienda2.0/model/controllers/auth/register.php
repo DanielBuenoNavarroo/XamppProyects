@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             $stmt->bindParam(':password', $password);
             $stmt->bindParam(':rol', $rol);
             if ($stmt->execute()) {
-                header("Location: " . $baseRoute . 'auth?view=login');
+                header("Location: $baseRouteauth?view=login");
             } else $message = 'Error al registrar el usuario';
         } else $message = 'El correo ya existe';
     } else $message = 'Faltan campos por rellenar';

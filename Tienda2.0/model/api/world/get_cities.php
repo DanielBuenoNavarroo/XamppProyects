@@ -4,7 +4,7 @@ require_once "./model/db_conex.php";
 try {
     $conexion = getConexion();
 
-    $LIMIT = ($_GET["limit"] ?? 10);
+    $LIMIT = $_GET["limit"] ?? 10;
     $OFFSET = ($_GET["page"] ?? 0) * $LIMIT;
     
     $state_id = $_GET["state_id"] ?? null;

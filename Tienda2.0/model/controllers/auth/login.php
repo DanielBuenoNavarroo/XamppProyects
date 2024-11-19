@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($user = $stmt->fetch(PDO::FETCH_ASSOC)) {
             session_start();
             $_SESSION["user"] = $user;
-            header("Location: " . $baseRoute);
+            header("Location: $baseRoute");
         } else $message = 'Usuario o contraseña incorrectos';
     } else $message = 'Faltan campos por rellenar';
 }

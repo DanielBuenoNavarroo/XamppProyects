@@ -3,6 +3,8 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
+$sessionUser = $_SESSION["user"] ?? null;
+
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $baseRoute = '/XamppProyects/Tienda2.0/';
 $apiRoute = "{$baseRoute}api/v1/";
@@ -11,14 +13,15 @@ $routes = [
     "{$baseRoute}auth" => 'controllers/auth.controller.php',
     "{$baseRoute}logout" => 'model/controllers/auth/logout.php',
     "{$baseRoute}admin" => 'controllers/admin.controller.php',
+    "{$baseRoute}profile" => 'controllers/profile.controller.php',
 ];
 
 $api = [
     "{$baseRoute}search_product" => 'model/api/search_products.php',
     "{$baseRoute}search_user" => '',
-    "{$apiRoute}countries"=> 'model/api/world/get_countries.php',
-    "{$apiRoute}states"=> 'model/api/world/get_states.php',
-    "{$apiRoute}cities"=> 'model/api/world/get_cities.php',
+    "{$apiRoute}countries" => 'model/api/world/get_countries.php',
+    "{$apiRoute}states" => 'model/api/world/get_states.php',
+    "{$apiRoute}cities" => 'model/api/world/get_cities.php',
 ];
 
 if (array_key_exists($uri, $routes)) {

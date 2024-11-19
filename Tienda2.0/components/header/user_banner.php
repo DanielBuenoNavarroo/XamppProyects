@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION["user"])) {
+if ($sessionUser != null) {
 ?>
     <div class="w-full h-[72px] flex items-center justify-end gap-4 px-2">
         <p class="cursor-pointer font-bold" onclick="handleDropdown()"><?php echo $_SESSION["user"]['nombre'] ?></p>
@@ -17,19 +17,19 @@ if (isset($_SESSION["user"])) {
             class="hidden absolute top-20 right-4 border border-slate-900 bg-slate-800 flex-col items-start justify-start w-64 px-3 py-2 gap-4 rounded-md z-50">
             <?php if ($roles[$_SESSION["user"]['rol_id']] == 'admin') { ?>
                 <a
-                    href="<?= $baseRoute ?>admin"
+                    href="<?php echo $baseRoute ?>admin"
                     class="w-full text-center py-2 px-1 font-semibold hover:text-blue-500">
                     Admin
                 </a>
                 <hr class="w-full">
             <?php } ?>
             <a
-                href="#"
+                href="<?php echo $baseRoute ?>profile"
                 class="w-full text-center py-2 px-1 font-semibold hover:text-blue-500">
                 Perfil
             </a>
             <a
-                href="<?= $baseRoute ?>logout"
+                href="<?php echo $baseRoute ?>logout"
                 class="w-full bg-red-500 rounded-md text-center py-2 px-1 font-semibold hover:bg-red-400 active:bg-red-600 active:scale-95">
                 Cerrar Sesión
             </a>
@@ -38,7 +38,7 @@ if (isset($_SESSION["user"])) {
 <?php } else { ?>
     <div class="w-full flex justify-end">
         <a
-            href="<?= $baseRoute ?>auth"
+            href="<?php echo $baseRoute ?>auth"
             class="w-32 bg-blue-500 rounded-md text-center py-2 px-2 active:bg-blue-600 active:scale-95">
             Iniciar sesión
         </a>
