@@ -1,5 +1,4 @@
 <?php
-$name = 'profile';
 if (!$sessionUser) {
     header("Location: $baseRoute");
 }
