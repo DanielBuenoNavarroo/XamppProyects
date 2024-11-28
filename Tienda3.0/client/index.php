@@ -11,7 +11,7 @@ if (array_key_exists($uri, $routes)) {
     $view = $routes[$uri];
 } else {
     http_response_code(404);
-    $view = 'controllers/404.controller.php';
+    $view = './client/controllers/404.controller.php';
 }
 
 require "./client/layouts/layout.php";
